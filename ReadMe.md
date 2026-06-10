@@ -276,6 +276,19 @@ NOTE: As mentioned with the "Enable FMV" optional patch, track #35 is the one wh
 
 ## FAQ
 
+* **I'm having issues trying to compile the project due to the compiler not detecting or recognizing certain executable files (scompress, flips, etc.)**
+
+If after running `make` you're getting an error about files like `scompress` or `flips` not being recognized, don't exist or can't be executed, try deleting the executable files from inside the `bin` folder. Only delete the following executable files (depending on which one is giving you the error, don't delete the others):
+
+	bin/scompress/scompress
+	bin/scompress/scompress-aptitude
+	bin/scompress/scompress-portage
+	bin/flips/flips
+	bin/flips/flips-aptitude
+	bin/flips/flips-portage
+	bin/asar-linux/asar-aptitude
+	bin/asar-linux/asar-portage
+
 * **Why are both the Map Layouts and the "TRIFORCE OF THE GODS" Subtitle Tilemapping handled through IPS patches instead of a proper ASM disassembly?**
 
 

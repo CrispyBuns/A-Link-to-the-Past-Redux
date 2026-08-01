@@ -108,14 +108,14 @@ Start()
 
 # Apply map layout changes if specified through IPS
 	echo "Applying Map layout changes...";
-	$flips $map_layouts.ips $patched_rom; echo
-	mv $map_layouts.sfc $patched_rom
+	$flips --apply $map_layouts.ips $patched_rom $patched_rom.tmp; echo
+	mv $patched_rom.tmp $patched_rom
 
 # Apply subtitle layout changes if specified through IPS
 	if [ "$graphics" == "Subtitle" ] || [ "$graphics" == "AgahnimSubtitle" ]; then
 		echo "Patching subtitle tilemapping...";
-		$flips $subtitle_layouts.ips $patched_rom; echo
-		mv $subtitle_layouts.sfc $patched_rom
+		$flips --apply $subtitle_layouts.ips $patched_rom $patched_rom.tmp; echo
+		mv $patched_rom.tmp $patched_rom
 	fi
 
 #-------------------------------------------------------------
@@ -259,3 +259,5 @@ else
 	#shift $(($OPTIND - 1))
 	#echo "$@"
 fi
+
+

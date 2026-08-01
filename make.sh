@@ -3,9 +3,18 @@
 #-------------------------------------------------------------
 # Variables used for the script
 export	time=$(date +'%T %a %d/%b/%Y')
-export	asar=bin/asar-linux/asar-aptitude
-export	flips=bin/flips/flips
-export	scompress=bin/scompress/scompress
+case "$(uname -s)" in
+	MINGW*|MSYS*|CYGWIN*)
+		export	asar=bin/asar-windows/asar.exe
+		export	flips=bin/flips/flips.exe
+		export	scompress=bin/scompress/scompress.exe
+		;;
+	*)
+		export	asar=bin/asar-linux/asar-aptitude
+		export	flips=bin/flips/flips
+		export	scompress=bin/scompress/scompress
+		;;
+esac
 export	file_base=Zelda3-Redux
 export  out_folder=out
 export	patches_folder=patches
@@ -250,5 +259,3 @@ else
 	#shift $(($OPTIND - 1))
 	#echo "$@"
 fi
-
-
